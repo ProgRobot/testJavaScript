@@ -1,0 +1,94 @@
+<html>
+    <head>
+
+        <title>test Code java Script</title>
+
+        <!-- A partir d'un autre fichier contenuJS.js-->
+    </head>
+
+    <body>
+
+        <h1>Ceci est un test</h1>
+        <!--Changement du text et style via le script JS Contenu JS-->
+        <p id="paragraphe1">Youcef tu dois etres motivé</p>
+
+        <!--Changement du text via le scipt message qui contient la fonction et leurs inovcations -->
+        <p id="special1">Ceci est le contenu du paragraphe special 1</p>
+        <p id="special2">Ceci est le contenu du paragraphe special 2</p>
+        <p id="special3">Ceci est le contenu du paragraphe special 3</p>
+        <p id="special4">Ceci est le contenu du paragraphe special 4</p>
+
+        <p id="bloc1">Ceci est le contenu du bloc 1</p>
+        <p id="bloc2">Ceci est le contenu du bloc 2</p>
+
+        <p id="blocVariableGlobale">Le bloc variable globale est vide</p>
+
+        <!--Appel pour plusieurs scripts-->
+
+        <script src="message.js">
+            
+        </script>
+
+        <script src=" contenuJS.js">
+        </script>
+
+        <script src="perimetrere.js">   
+        </script>
+
+        <script src="message2.js">
+
+        </script>
+       
+       <script>
+            variableGlobale1 = 12 ;
+            var variableGlobale2="Yani";            
+            function maFonction(){
+                var monMessageglobale="<p>Contenu de mon message globale</p>";    
+                document.getElementById("blocVariableGlobale").innerHTML=monMessageglobale;
+            }
+            maFonction(); // Attention à ne pas oublier l'appel de la fonction
+            messageSalutation="Salut mec, j'espère que tu vas bien";
+            alert(messageSalutation);
+
+            //Notion d'objet et de classe 
+            
+            function Voiture(marque,modele){
+                this.marque=marque;
+                this.modele=modele;
+                this.afficher=function(){
+                    alert(this.marque+" "+this.modele);
+                }
+            }
+
+            var maVoiture = new Voiture("Ford","Fiesta");
+            maVoiture.afficher();
+            console.log(maVoiture.marque);
+
+            maVoiture.km = 8000;
+            maVoiture.rouler = function(distance){
+                this.km += distance;
+            }
+            maVoiture.rouler(50);
+            //Utilisation des crochets
+            alert(maVoiture["km"]);
+
+
+            //Déclaration d'un objet selon la syntaxe JSON
+            var monObjet =  {
+                "nom":"Fred",
+                "age":28,
+                "afficher":function(id){
+                    document.getElementById(id).innerHTML=this.nom;
+                }
+            };
+
+            //Utilisation de l'attribut nom
+            alert(monObjet.nom);
+            //Utilisation de la méthode afficher
+            monObjet.afficher("bloc")
+
+        </script>
+
+
+    </body>
+</html>
